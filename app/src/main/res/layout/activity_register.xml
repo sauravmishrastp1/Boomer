@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical">
+
+
+                <ImageView
+                    android:layout_width="250dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/loginlogo"
+                    android:adjustViewBounds="true"
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center_horizontal"
+                    />
+                <RelativeLayout
+                    android:layout_width="110dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:layout_height="110dp">
+
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="100dp"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    app:civ_border_width="2dp"
+                    android:src="@drawable/avatar"
+                    android:layout_centerHorizontal="true"
+                    app:civ_border_color="@color/white"
+                    android:id="@+id/uploadimg"
+                    android:layout_height="100dp">
+
+                </de.hdodenhof.circleimageview.CircleImageView>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:id="@+id/upload_img_icon"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:src="@drawable/editicon"
+                        android:layout_height="wrap_content"></ImageView>
+                </RelativeLayout>
+
+                <EditText
+                    android:id="@+id/usernameEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="24dp"
+                    android:backgroundTint="@color/white"
+                    android:drawableLeft="@drawable/username"
+                    android:drawablePadding="16dp"
+                    android:hint="@string/user_name"
+                    android:inputType="text"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:textSize="12sp" />
+
+
+                <EditText
+                    android:id="@+id/emailEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:hint="@string/email"
+                    android:textSize="12sp"
+                    android:layout_marginTop="24dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:backgroundTint="@color/white"
+                    android:inputType="text"
+                    android:drawableLeft="@drawable/email"
+                    android:drawablePadding="16dp"
+                    />
+
+
+
+                <EditText
+                    android:id="@+id/phoneEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:hint="@string/phone_number"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    android:layout_marginTop="24dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:backgroundTint="@color/white"
+                    android:inputType="text"
+                    android:drawableLeft="@drawable/call"
+                    android:drawablePadding="16dp"
+                    />
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:id="@+id/spiner"
+                    android:layout_marginStart="24dp"
+                    android:hint="Class"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/border_background"
+                    android:layout_marginEnd="24dp"
+                    android:layout_height="45dp">
+
+                </Spinner>
+
+                <EditText
+                    android:id="@+id/passEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:layout_marginTop="24dp"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/white"
+                    android:hint="@string/create_password"
+                    android:textColorHint="@color/white"
+                    android:textSize="12sp"
+                    android:inputType="textPassword"
+                    android:imeOptions="actionNext"
+                    android:drawableLeft="@drawable/password"
+                    android:drawablePadding="16dp"
+                    tools:ignore="LabelFor" />
+
+
+
+                <Button
+                    android:id="@+id/registerbtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="24dp"
+                    android:background="@drawable/button_background"
+                    android:text="@string/register"
+                    android:textColor="@color/white"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Or Sign Up with"
+                    android:layout_marginBottom="8dp"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/white"/>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="16dp">
+
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/googlelogin"/>
+
+                    <ImageView
+                        android:layout_width="150dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/facebooklogin"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/signinpagelink"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Already have an Account?"
+                        android:textColor="@color/white"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" Sign In"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:fontFamily="sans-serif"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/progressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="invisible"
+        android:indeterminateDrawable="@drawable/progressbar_background"/>
+
+
+
+
+</RelativeLayout>

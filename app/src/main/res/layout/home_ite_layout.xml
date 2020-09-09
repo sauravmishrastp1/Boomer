@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:background="@drawable/home_item_background"
+    android:elevation="2dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/imageview"
+            android:layout_width="115dp"
+            android:layout_height="120dp"
+            app:cardCornerRadius="6dp"
+            android:layout_margin="6dp"
+            android:background="@drawable/image1">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/user_placeholder"
+                android:layout_gravity="center"
+                />
+
+        </androidx.cardview.widget.CardView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="8dp">
+
+            <ImageView
+                android:id="@+id/newtag"
+                android:layout_width="50dp"
+                android:layout_height="24dp"
+                android:src="@drawable/newtag"
+                android:layout_alignParentEnd="true"
+                android:visibility="gone"
+                android:layout_alignParentRight="true" />
+
+            <TextView
+                android:id="@+id/nametv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dr Kunal Rastogi"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                />
+
+            <LinearLayout
+                android:id="@+id/specialistview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rectangular_background"
+                android:backgroundTint="@color/grey"
+                android:elevation="4dp"
+                android:layout_below="@id/nametv"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                >
+
+                <TextView
+                    android:id="@+id/specialitytv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Astrologer"
+                    android:textSize="10sp"
+                    android:paddingLeft="6dp"
+                    android:paddingRight="6dp"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/experincetv"
+                android:layout_below="@+id/specialistview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12 Years Experienced"
+                android:textColor="@color/black"
+                android:layout_marginBottom="12dp"
+                android:textSize="12sp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                 android:layout_below="@id/experincetv"
+                android:gravity="bottom"
+                >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/heart"/>
+
+                    <TextView
+                        android:id="@+id/totallikestv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="347"
+                        android:textSize="10sp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="8dp"/>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/chat"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="347"
+                        android:textSize="10sp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="8dp"/>
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/share"/>
+
+                    <TextView
+                        android:id="@+id/totalsharetv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="347"
+                        android:textSize="10sp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="8dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Boomer</string>
+    <string name="password">Password</string>
+    <string name="user_name">User Name</string>
+    <string name="forget_password">Forget Password</string>
+    <string name="login">Login</string>
+    <string name="email">Email Address</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="create_password">Create Password</string>
+    <string name="register">Register</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="select_plan">Select Your Plan</string>
+    <string name="continue_to_your_favorite_blog_information">Continue to your favorite Blog Information</string>
+
+    <string name="sample_blog">Global Exchange condemns the terrorist attack on Cuba’s Embassy in Washington, DC early in the morning of April 30.
+We are outraged that the levels of rhetoric, sanctions, and misinformation have continued to escalate and now are more endangering to the lives of Cuba’s diplomatic representatives and their families.
+Global Exchange condemns in our loudest voices these blatant actions of aggression against a sovereign nation.  We will continue our decades long work to ensure that unlawful acts against Cuba are publicized to our communities and that official steps are taken to ensure that these incidents are investigated and not allowed to be repeated.</string>
+</resources>

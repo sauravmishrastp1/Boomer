@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.CreateBlogFragment">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_below="@id/textview"
+        android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:id="@+id/layout"
+            android:orientation="vertical"
+           android:background="@drawable/bordder32"
+            android:layout_margin="20dp"
+            android:layout_height="120dp">
+            <ImageView
+                android:layout_width="match_parent"
+                android:id="@+id/imageview"
+                android:layout_height="match_parent">
+
+            </ImageView>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:id="@+id/updloadimg"
+                android:src="@drawable/editicon"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp">
+            </ImageView>
+
+        </RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/textview"
+            android:text="Upload Blog Image"
+            android:layout_centerHorizontal="true"
+            android:textColor="#4A4A4A"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:layout_below="@id/layout"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"></TextView>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_below="@id/textview"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                app:boxStrokeColor="#000"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="20dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:hint="Subject"
+                    android:id="@+id/subject"
+                    android:textSize="12dp"
+                    android:layout_height="wrap_content">
+
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+            <Spinner
+                android:layout_width="match_parent"
+                android:id="@+id/spinner"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bordder32"
+                android:layout_height="45dp">
+
+            </Spinner>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                app:boxStrokeColor="#000"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:hint="Blog Title"
+                    android:id="@+id/blog_title"
+                    android:textSize="12dp"
+                    android:layout_height="wrap_content">
+
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                app:boxStrokeColor="#000"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_height="wrap_content">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:textSize="12dp"
+                    android:id="@+id/description_txt"
+                    android:hint="Description"
+                    android:layout_height="wrap_content">
+
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+            <Button
+                android:id="@+id/post_now"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_margin="24dp"
+                android:background="@drawable/button_background"
+                android:text="Post Now"
+                android:textColor="@color/white"
+                android:textSize="12sp"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+    </ScrollView>
+</FrameLayout>
