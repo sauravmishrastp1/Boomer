@@ -3,7 +3,7 @@ package com.expertwebtech.boomer.pojo;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Result_model {
+public class Example {
     @SerializedName("status")
     @Expose
     private String status;
@@ -15,11 +15,12 @@ public class Result_model {
     private String massage;
     @SerializedName("data")
     @Expose
-    private Register_Data data;
+    private Data data;
 
     public String getStatus() {
         return status;
     }
+
 
     public void setStatus(String status) {
         this.status = status;
@@ -41,11 +42,11 @@ public class Result_model {
         this.massage = massage;
     }
 
-    public Register_Data getData() {
+    public Data getData() {
         return data;
     }
 
-    public void setData(Register_Data data) {
+    public void setData(Data data) {
         this.data = data;
     }
 

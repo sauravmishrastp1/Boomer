@@ -2,8 +2,14 @@ package com.expertwebtech.boomer.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -40,6 +46,7 @@ public class LoginActivity extends AppCompatActivity {
     private String username,password,type;
     private EditText usernameEt,passEt;
     private TextView register_txt;
+    private static final int MY_PERMISSIONS_REQUEST_CODE = 123;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -164,5 +171,74 @@ public class LoginActivity extends AppCompatActivity {
         VolleySingleton.getInstance(this).addToRequestQueue(stringRequest);
 
     }
+    protected void requestStoragePermission(){
+        if(ContextCompat.checkSelfPermission(
+                this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED){
+
+            // Do something, when permissions not granted
+            if(ActivityCompat.shouldShowRequestPermissionRationale(
+                    this,Manifest.permission.WRITE_EXTERNAL_STORAGE)){
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setMessage("Storage permissions are required to do the task.");
+                builder.setTitle("Please grant those permissions");
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        ActivityCompat.requestPermissions(
+                                LoginActivity.this,
+                                new String[]{
+                                        Manifest.permission.WRITE_EXTERNAL_STORAGE
+                                },
+                                MY_PERMISSIONS_REQUEST_CODE
+                        );
+                    }
+                });
+                builder.setNeutralButton("Cancel",null);
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }else{
+                // Directly request for required permissions, without explanation
+                ActivityCompat.requestPermissions(
+                        this,
+                        new String[]{
+                                Manifest.permission.WRITE_EXTERNAL_STORAGE
+                        },
+                        MY_PERMISSIONS_REQUEST_CODE
+                );
+            }
+        }else {
+            // Do something, when permissions are already granted
+            Toast.makeText(this,"Permissions already granted",Toast.LENGTH_SHORT).show();
+        }
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        requestStoragePermission();
+    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults){
+        switch (requestCode){
+            case MY_PERMISSIONS_REQUEST_CODE:{
+                // When request is cancelled, the results array are empty
+                if(
+                        (grantResults.length >0) && (grantResults[0] == PackageManager.PERMISSION_GRANTED
+                        )
+                ){
+                    // Permissions are granted
+                    Toast.makeText(this,"Permissions granted.",Toast.LENGTH_SHORT).show();
+                }else {
+                    // Permissions are denied
+                    Toast.makeText(this,"Permissions denied.",Toast.LENGTH_SHORT).show();
+                }
+                return;
+            }
+        }
+    }
+
+
+
 
 }

@@ -39,12 +39,22 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.ViewHolder> {
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
 
         holder.pricetv.setText("\u20B9"+plansList.get(position).getPrice());
         holder.titletv.setText(plansList.get(position).getTitle());
         holder.daystv.setText(plansList.get(position).getDay()+" days");
         holder.parentview.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(plansList.get(position).getBackgroundColor())));
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent=new Intent(context, BlogListingActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("id",plansList.get(position).getId());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -63,15 +73,7 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.ViewHolder> {
             daystv=itemView.findViewById(R.id.daystv);
             titletv=itemView.findViewById(R.id.titletv);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
 
-                    Intent intent=new Intent(context, BlogListingActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    context.startActivity(intent);
-                }
-            });
         }
     }
 }

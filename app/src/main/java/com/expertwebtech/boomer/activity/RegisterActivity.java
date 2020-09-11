@@ -25,14 +25,11 @@ import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.daimajia.androidanimations.library.Techniques;
-import com.daimajia.androidanimations.library.YoYo;
 import com.expertwebtech.boomer.R;
 import com.expertwebtech.boomer.adapter.Spinner_ItemAdapter;
 import com.expertwebtech.boomer.constant.MultiPartHelperClass;
@@ -40,7 +37,7 @@ import com.expertwebtech.boomer.constant.SharedPrefManager;
 import com.expertwebtech.boomer.constant.Url;
 import com.expertwebtech.boomer.constant.VolleySingleton;
 import com.expertwebtech.boomer.pojo.Data;
-import com.expertwebtech.boomer.pojo.Register_Data;
+import com.expertwebtech.boomer.pojo.Example;
 import com.expertwebtech.boomer.pojo.Spinner_ItemModel;
 import com.expertwebtech.boomer.pojo.User;
 import com.expertwebtech.boomer.retrofitfileupload.Api;
@@ -375,9 +372,9 @@ public class RegisterActivity extends AppCompatActivity {
                     .setLenient()
                     .create();
 
+            //creating retrofit object
+            //creating retrofit object
 
-            //creating retrofit object
-            //creating retrofit object
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl(com.expertwebtech.boomer.retrofitfileupload.Api.BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create(gson))
@@ -387,21 +384,34 @@ public class RegisterActivity extends AppCompatActivity {
             Api api = retrofit.create(Api.class);
 
             //creating a call and calling the upload image method
-            Call<Register_Data> call = api.Register(MultiPartHelperClass.getMultipartData(new File(filePatadhar), "image"),name,email_,pass_pass,user_type,dob,location,speciality,total_exp,address);
+            Call<Example> call = api.Register(MultiPartHelperClass.getMultipartData(new File(filePatadhar), "image"),name,email_,pass_pass,user_type,dob,location,speciality,total_exp,address);
 
             //finally performing the call
-            call.enqueue(new Callback<Register_Data>() {
+            call.enqueue(new Callback<Example>() {
                 @Override
-                public void onResponse(retrofit2.Call<Register_Data> call, retrofit2.Response<Register_Data> response) {
+                public void onResponse(retrofit2.Call<Example>call, retrofit2.Response<Example> response) {
+                    Toast.makeText(RegisterActivity.this, "Register sucessfully", Toast.LENGTH_SHORT).show();
 
+                     String username = response.body().getData().getName();
+                     String userId = String.valueOf(response.body().getData().getId());
+                     String  email= response.body().getData().getEmail();
+                     String user_tye = response.body().getData().getUserType();
+                     String location = response.body().getData().getLocation();
 
                     progressDialog.dismiss();
+                    User user=new User(userId,username,email,user_tye,location,"","");
+                    SharedPrefManager.getInstance(getApplicationContext()).userLogin(user);
+
+
+                    Intent intent = new Intent(RegisterActivity.this,MainActivity.class);
+                    startActivity(intent);
+
 
 
                 }
 
                 @Override
-                public void onFailure(Call<Register_Data> call, Throwable t) {
+                public void onFailure(Call<Example> call, Throwable t) {
 
                     Toast.makeText(getApplicationContext(), "Something Went Wrong" + t.getMessage(), Toast.LENGTH_SHORT).show();
                     progressDialog.dismiss();

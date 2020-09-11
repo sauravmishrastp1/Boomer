@@ -1,6 +1,6 @@
 package com.expertwebtech.boomer.retrofitfileupload;
 
-import com.expertwebtech.boomer.pojo.Data;
+import com.expertwebtech.boomer.pojo.Create_Post_Model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -17,7 +17,7 @@ public class Example {
     private String massage;
     @SerializedName("data")
     @Expose
-    private Data data;
+    private Create_Post_Model createPostModel;
 
     public String getStatus() {
         return status;
@@ -43,11 +43,11 @@ public class Example {
         this.massage = massage;
     }
 
-    public Data getData() {
-        return data;
+    public Create_Post_Model getCreatePostModel() {
+        return createPostModel;
     }
 
-    public void setData(Data data) {
-        this.data = data;
+    public void setCreatePostModel(Create_Post_Model createPostModel) {
+        this.createPostModel = createPostModel;
     }
 }

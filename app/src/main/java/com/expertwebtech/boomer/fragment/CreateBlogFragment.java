@@ -1,7 +1,6 @@
 package com.expertwebtech.boomer.fragment;
 
-import android.app.ProgressDialog;
-import android.content.ContentResolver;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -11,11 +10,10 @@ import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.loader.content.CursorLoader;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
-import android.provider.CalendarContract;
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,22 +30,17 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.expertwebtech.boomer.R;
-import com.expertwebtech.boomer.adapter.PlanAdapter;
-import com.expertwebtech.boomer.adapter.Spinner_ItemAdapter;
 import com.expertwebtech.boomer.adapter.Spinner_ItemAdapter2;
-import com.expertwebtech.boomer.constant.FileUtils;
 import com.expertwebtech.boomer.constant.MultiPartHelperClass;
 import com.expertwebtech.boomer.constant.SharedPrefManager;
 import com.expertwebtech.boomer.constant.VolleySingleton;
 import com.expertwebtech.boomer.pojo.Category_Model;
-import com.expertwebtech.boomer.pojo.Data;
-import com.expertwebtech.boomer.pojo.Plans;
-import com.expertwebtech.boomer.pojo.Spinner_ItemModel;
+import com.expertwebtech.boomer.pojo.Create_Post_Model;
 import com.expertwebtech.boomer.retrofitfileupload.Api;
+import com.expertwebtech.boomer.retrofitfileupload.Example;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.kaopiz.kprogresshud.KProgressHUD;
@@ -57,11 +50,8 @@ import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Queue;
 
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
@@ -278,12 +268,12 @@ public class CreateBlogFragment extends Fragment {
                     .setMaxProgress(100)
                     .show();
             progressDialog.setProgress(90);
-            Toast.makeText(getContext(), ""+cat_id, Toast.LENGTH_SHORT).show();
+           // Toast.makeText(getContext(), ""+SharedPrefManager.getInstance(getContext()).getUser().getId(), Toast.LENGTH_SHORT).show();
 
             RequestBody blogtitle_= RequestBody.create(MediaType.parse("text/plain"),blogtitle);
             RequestBody discription_= RequestBody.create(MediaType.parse("text/plain"),discription);
             RequestBody subject_= RequestBody.create(MediaType.parse("text/plain"),subject);
-            RequestBody user_id= RequestBody.create(MediaType.parse("text/plain"),"22");
+            RequestBody user_id= RequestBody.create(MediaType.parse("text/plain"), SharedPrefManager.getInstance(getContext()).getUser().getId());
             RequestBody cat_id_= RequestBody.create(MediaType.parse("text/plain"),cat_id);
 
             //The gson builder
@@ -304,14 +294,14 @@ public class CreateBlogFragment extends Fragment {
             Api api = retrofit.create(Api.class);
 
             //creating a call and calling the upload image method
-            Call<Data> call = api.Createblog(MultiPartHelperClass.getMultipartData(new File(filePatadhar), "image"), blogtitle_, discription_, user_id, cat_id_, subject_);
+            Call<Example> call = api.Createblog(MultiPartHelperClass.getMultipartData(new File(filePatadhar), "image"), blogtitle_, discription_, user_id, cat_id_, subject_);
 
             //finally performing the call
-            call.enqueue(new Callback<Data>() {
+            call.enqueue(new Callback<Example>() {
                 @Override
-                public void onResponse(retrofit2.Call<Data> call, retrofit2.Response<Data> response) {
+                public void onResponse(retrofit2.Call<Example> call, retrofit2.Response<Example> response) {
 
-                    Toast.makeText(getContext(), "Uploaded Successfully"+response.body(), Toast.LENGTH_SHORT).show();
+                    showDialogue();
 
                     progressDialog.dismiss();
 
@@ -319,14 +309,77 @@ public class CreateBlogFragment extends Fragment {
                 }
 
                 @Override
-                public void onFailure(Call<Data> call, Throwable t) {
+                public void onFailure(Call<Example> call, Throwable t) {
 
-                    Toast.makeText(getContext(), "Something Went Wrong" + t.getMessage(), Toast.LENGTH_SHORT).show();
+                    showDialogue();
                     progressDialog.dismiss();
                 }
 
             });
         }
+    }
+
+    private void showDialogue()
+    {
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(getContext());
+        builder1.setMessage("Your Blog post successfully");
+        builder1.setCancelable(true);
+        builder1.setIcon(R.drawable.ic_launcher_foreground);
+
+        builder1.setPositiveButton(
+                "OK",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+//                        SharedPrefManager.getInstance(getContext()).logout();
+//                        getActivity().finish();
+
+//                        GoogleSignInAccount alreadyloggedAccount = GoogleSignIn.getLastSignedInAccount(getContext());
+//                        boolean loggedOut = AccessToken.getCurrentAccessToken() == null;
+
+
+
+//                        if (alreadyloggedAccount != null) {
+//
+//                            GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+//                                    .requestEmail()
+//                                    .build();
+//                            googleSignInClient = GoogleSignIn.getClient(getContext(), gso);
+//                            googleSignInClient.signOut().addOnCompleteListener(new OnCompleteListener<Void>() {
+//                                @Override
+//                                public void onComplete(@NonNull Task<Void> task) {
+//                                    //On Succesfull signout we navigate the user back to LoginActivity
+//                                    SharedPrefManager.getInstance(getContext()).logout();
+//                                    getActivity().finish();
+//                                }
+//                            });
+//
+//                        }
+//
+//                        else if (!loggedOut) {
+//
+//                            LoginManager.getInstance().logOut();
+//                            SharedPrefManager.getInstance(getContext()).logout();
+//                            getActivity().finish();
+//
+//                        }
+//                        else {
+//                            Log.d(TAG, "Not logged in");
+//                            SharedPrefManager.getInstance(getContext()).logout();
+//                            getActivity().finish();
+//                        }
+                       dialog.dismiss();
+
+                    }
+                });
+
+
+
+        AlertDialog alert11 = builder1.create();
+        alert11.show();
+
+
+
     }
 
 

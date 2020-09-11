@@ -40,7 +40,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
 
        // holder.imageView.setImageResource(homeList.get(position).getPicture());
 
@@ -52,6 +52,19 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
         holder.totallikestv.setText(homeList.get(position).getLike());
         holder.totalsharetv.setText(homeList.get(position).getShare());
         holder.specialitytv.setText(homeList.get(position).getSpeciality());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent=new Intent(context, UserDetailsActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("name",homeList.get(position).getName());
+                intent.putExtra("id",homeList.get(position).getId());
+                intent.putExtra("img",homeList.get(position).getImage());
+                context.startActivity(intent);
+            }
+        });
 
     }
 
@@ -76,15 +89,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
             image=itemView.findViewById(R.id.image);
 
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
 
-                    Intent intent=new Intent(context, UserDetailsActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    context.startActivity(intent);
-                }
-            });
 
         }
     }

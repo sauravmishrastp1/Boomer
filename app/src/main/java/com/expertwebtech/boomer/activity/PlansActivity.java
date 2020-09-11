@@ -20,6 +20,8 @@ public class PlansActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     private List<Plans> plansList=new ArrayList<>();
     View toolbar;
+    Bundle bundle;
+    String id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,20 +30,23 @@ public class PlansActivity extends AppCompatActivity {
 
         recyclerView=findViewById(R.id.recyclerview);
         toolbar=findViewById(R.id.toolbar);
-
+        bundle = getIntent().getExtras();
+        if(!bundle.isEmpty()){
+           id = bundle.getString("id");
+        }
         LinearLayoutManager layoutManager=new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
 
 
-        plansList.add(new Plans("1","300","Continue to your favourite",R.drawable.plan1,"365","#6EA2FF"));
+        plansList.add(new Plans(id,"300","Continue to your favourite",R.drawable.plan1,"365","#6EA2FF"));
 
-        plansList.add(new Plans("1","300","Continue to your favourite",R.drawable.plan1,"365","#6EA2FF"));
+        plansList.add(new Plans(id,"300","Continue to your favourite",R.drawable.plan1,"365","#6EA2FF"));
 
-        plansList.add(new Plans("1","300","Continue to your favourite",R.drawable.plan1,"365","#6EA2FF"));
+        plansList.add(new Plans(id,"300","Continue to your favourite",R.drawable.plan1,"365","#6EA2FF"));
 
-        plansList.add(new Plans("1","300","Continue to your favourite",R.drawable.plan1,"365","#6EA2FF"));
+        plansList.add(new Plans(id,"300","Continue to your favourite",R.drawable.plan1,"365","#6EA2FF"));
 
-        plansList.add(new Plans("1","300","Continue to your favourite",R.drawable.plan1,"365","#6EA2FF"));
+        plansList.add(new Plans(id,"300","Continue to your favourite",R.drawable.plan1,"365","#6EA2FF"));
 
 
 

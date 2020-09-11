@@ -1,7 +1,5 @@
 package com.expertwebtech.boomer.pojo;
 
-import android.media.Image;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -10,21 +8,30 @@ public class Data {
     @SerializedName("name")
     @Expose
     private String name;
-    @SerializedName("discription")
+    @SerializedName("email")
     @Expose
-    private String discription;
-    @SerializedName("user_id")
+    private String email;
+    @SerializedName("user_type")
     @Expose
-    private String userId;
-    @SerializedName("cat_id")
-    @Expose
-    private String catId;
-    @SerializedName("subject")
-    @Expose
-    private String subject;
+    private String userType;
     @SerializedName("image")
     @Expose
-    private Image image;
+    private String image;
+    @SerializedName("location")
+    @Expose
+    private String location;
+    @SerializedName("speciality")
+    @Expose
+    private String speciality;
+    @SerializedName("address")
+    @Expose
+    private String address;
+    @SerializedName("dob")
+    @Expose
+    private String dob;
+    @SerializedName("total_exp")
+    @Expose
+    private String totalExp;
     @SerializedName("updated_at")
     @Expose
     private String updatedAt;
@@ -35,6 +42,7 @@ public class Data {
     @Expose
     private Integer id;
 
+
     public String getName() {
         return name;
     }
@@ -43,44 +51,68 @@ public class Data {
         this.name = name;
     }
 
-    public String getDiscription() {
-        return discription;
+    public String getEmail() {
+        return email;
     }
 
-    public void setDiscription(String discription) {
-        this.discription = discription;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getUserType() {
+        return userType;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setUserType(String userType) {
+        this.userType = userType;
     }
 
-    public String getCatId() {
-        return catId;
-    }
-
-    public void setCatId(String catId) {
-        this.catId = catId;
-    }
-
-    public String getSubject() {
-        return subject;
-    }
-
-    public void setSubject(String subject) {
-        this.subject = subject;
-    }
-
-    public Image getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(Image image) {
+    public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getSpeciality() {
+        return speciality;
+    }
+
+    public void setSpeciality(String speciality) {
+        this.speciality = speciality;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getDob() {
+        return dob;
+    }
+
+    public void setDob(String dob) {
+        this.dob = dob;
+    }
+
+    public String getTotalExp() {
+        return totalExp;
+    }
+
+    public void setTotalExp(String totalExp) {
+        this.totalExp = totalExp;
     }
 
     public String getUpdatedAt() {
