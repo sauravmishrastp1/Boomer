@@ -41,7 +41,7 @@ import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
 
-    Button loginbtn;
+    View loginbtn;
     private ProgressBar progressBar;
     private String username,password,type;
     private EditText usernameEt,passEt;
@@ -74,7 +74,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        loginbtn=findViewById(R.id.loginbtn);
+        loginbtn=findViewById(R.id.login_card);
 
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,9 +119,9 @@ public class LoginActivity extends AppCompatActivity {
                                 String userEmail = userJson.getString("email");
                                 //String userPhone = userJson.getString("phone");
                                 String user_type = userJson.getString("user_type");
-                               // String image = userJson.getString("image");
+                               String image = userJson.getString("image");
 
-                                    User user=new User(userId,username,userEmail,user_type,"","","");
+                                    User user=new User(userId,username,userEmail,user_type,"",image,"");
                                     SharedPrefManager.getInstance(getApplicationContext()).userLogin(user);
                                     startActivity(new Intent(LoginActivity.this,MainActivity.class));
                                     finish();

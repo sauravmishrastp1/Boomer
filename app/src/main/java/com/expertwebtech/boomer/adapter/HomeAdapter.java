@@ -62,6 +62,14 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
                 intent.putExtra("name",homeList.get(position).getName());
                 intent.putExtra("id",homeList.get(position).getId());
                 intent.putExtra("img",homeList.get(position).getImage());
+                intent.putExtra("email",homeList.get(position).getEmail());
+                intent.putExtra("location",homeList.get(position).getLocation());
+                intent.putExtra("address",homeList.get(position).getAddress());
+                intent.putExtra("phone",homeList.get(position).getPhone());
+                intent.putExtra("post",homeList.get(position).getPost());
+                intent.putExtra("flowers",homeList.get(position).getFlowers());
+                intent.putExtra("dob",homeList.get(position).getDob());
+                intent.putExtra("speciality",homeList.get(position).getSpeciality());
                 context.startActivity(intent);
             }
         });

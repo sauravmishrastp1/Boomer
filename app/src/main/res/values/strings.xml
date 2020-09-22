@@ -18,4 +18,8 @@
     <string name="sample_blog">Global Exchange condemns the terrorist attack on Cuba’s Embassy in Washington, DC early in the morning of April 30.
 We are outraged that the levels of rhetoric, sanctions, and misinformation have continued to escalate and now are more endangering to the lives of Cuba’s diplomatic representatives and their families.
 Global Exchange condemns in our loudest voices these blatant actions of aggression against a sovereign nation.  We will continue our decades long work to ensure that unlawful acts against Cuba are publicized to our communities and that official steps are taken to ensure that these incidents are investigated and not allowed to be repeated.</string>
+    <string name="address">Address</string>
+    <string name="total_experience">Total Experience</string>
+    <string name="date_of_birth">Date of Birth</string>
+    <string name="specialist">Specialist</string>
 </resources>

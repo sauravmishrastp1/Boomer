@@ -63,6 +63,7 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="120dp"
+            android:id="@+id/profile_image"
             android:layout_height="120dp"
             android:src="@drawable/image1"
             app:civ_border_width="2dp"
@@ -72,8 +73,9 @@
 
         <TextView
             android:layout_width="wrap_content"
+            android:id="@+id/profile_name"
             android:layout_height="wrap_content"
-            android:text="Martha Harish"
+            android:text=""
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="8dp"
             android:textSize="16sp"
@@ -83,7 +85,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Own Business"
+            android:text=""
+            android:id="@+id/speclization"
             android:layout_gravity="center_horizontal"
             android:textSize="12sp"/>
 
@@ -121,8 +124,9 @@
 
                 <TextView
                     android:layout_width="wrap_content"
+                    android:id="@+id/profile_nametxt"
                     android:layout_height="wrap_content"
-                    android:text="Martha Harish"
+                    android:text=""
                     android:textSize="12sp"
                     android:layout_gravity="center_horizontal"/>
 
@@ -146,8 +150,9 @@
 
                 <TextView
                     android:layout_width="wrap_content"
+                    android:id="@+id/profile_email_txt"
                     android:layout_height="wrap_content"
-                    android:text="martha123@gmail.com"
+                    android:text=""
                     android:textSize="12sp"
                     android:layout_gravity="center_horizontal"/>
 
@@ -183,7 +188,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="+91 8872720098"
+                    android:text="+91-----"
+                    android:id="@+id/phone_txt"
                     android:textSize="12sp"
                     android:layout_gravity="center_horizontal"/>
 
@@ -207,8 +213,72 @@
 
                 <TextView
                     android:layout_width="wrap_content"
+                    android:id="@+id/lovatintct"
                     android:layout_height="wrap_content"
-                    android:text="India"
+                    android:text=""
+                    android:textSize="12sp"
+                    android:layout_gravity="center_horizontal"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Adress"
+                    android:textSize="16sp"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:id="@+id/address_txt"
+                    android:textSize="12sp"
+                    android:layout_gravity="center_horizontal"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Date of Birth"
+                    android:textSize="16sp"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/dateofbirth"
+                    android:layout_height="wrap_content"
+                    android:text=""
                     android:textSize="12sp"
                     android:layout_gravity="center_horizontal"/>
 
@@ -219,12 +289,13 @@
 
         <Button
             android:layout_width="match_parent"
+            android:id="@+id/update_profile"
             android:layout_height="40dp"
             android:layout_marginTop="24dp"
             android:layout_marginRight="24dp"
             android:background="@drawable/button_background_with_grey_border"
             android:text="Edit Profile"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="12sp"
             android:layout_marginLeft="24dp"/>
 
@@ -236,7 +307,7 @@
             android:layout_marginRight="24dp"
             android:background="@drawable/button_background_with_grey_border"
             android:text="Logout"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="12sp"
             android:layout_marginLeft="24dp"/>
 
@@ -254,6 +325,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="My Blog"
+            android:visibility="gone"
             android:layout_margin="16dp"
             android:textColor="@color/black"
             android:textStyle="bold"/>
@@ -261,6 +333,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview2"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </androidx.recyclerview.widget.RecyclerView>

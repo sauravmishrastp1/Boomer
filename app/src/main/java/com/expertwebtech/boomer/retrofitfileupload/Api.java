@@ -50,7 +50,30 @@ public interface Api {
                            @Part("address")RequestBody address);
 
 
+    @Multipart
+    @POST("updateUserProfile")
+    Call<UpdateProfile> updateprofile(@Part MultipartBody.Part image,
+                           @Part("name") RequestBody name,
+                           @Part("email") RequestBody email,
+                           @Part("dob") RequestBody dob,
+                           @Part("phone")RequestBody phone,
+                           @Part("updated_user_id") RequestBody updated_user_id,
+                           @Part("location")RequestBody dlocationob,
+                           @Part("address")RequestBody address);
 
+
+    @Multipart
+    @POST("updateUserBlogProfile ")
+    Call<UpdateProfile> updatebloger(@Part MultipartBody.Part image,
+                                      @Part("name") RequestBody name,
+                                      @Part("email") RequestBody email,
+                                      @Part("dob") RequestBody dob,
+                                     @Part("phone")RequestBody phone,
+                                      @Part("updated_user_id") RequestBody updated_user_id,
+                                      @Part("location")RequestBody dlocationob,
+                                      @Part("speciality")RequestBody speciality,
+                                      @Part("total_exp")RequestBody total_exp,
+                                      @Part("address")RequestBody address);
 
 
 

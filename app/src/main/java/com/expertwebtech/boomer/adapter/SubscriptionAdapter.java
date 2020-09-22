@@ -38,7 +38,7 @@ public class SubscriptionAdapter  extends RecyclerView.Adapter<SubscriptionAdapt
 
         // holder.imageView.setImageResource(homeList.get(position).getPicture());
 
-        holder.imageView.setBackgroundResource(homeList.get(position).getPicture());
+       // holder.imageView.setBackgroundResource(homeList.get(position).getPicture());
         holder.nametv.setText(homeList.get(position).getName());
 
     }

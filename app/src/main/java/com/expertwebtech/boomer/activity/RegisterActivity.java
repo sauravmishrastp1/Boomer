@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.loader.content.CursorLoader;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -19,6 +20,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -30,6 +32,8 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.expertwebtech.boomer.R;
 import com.expertwebtech.boomer.adapter.Spinner_ItemAdapter;
 import com.expertwebtech.boomer.constant.MultiPartHelperClass;
@@ -51,6 +55,7 @@ import org.json.JSONObject;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -64,9 +69,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private Button registerbtn;
-    private EditText usernameEt,emailEt,phoneEt,passEt;
-    private String username,email,phone,pass;
+    private View registerbtn;
+    private EditText usernameEt,emailEt,phoneEt,passEt,dateof_birth_Et,lcation_Et,speclaist_Et,total_Exprence_Et,Address_Et;
+    private String username,email,phone,pass,dobres,locationres,specalistres="not specified",totalexpres="na",addrsessres;
     public  String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     private ProgressBar progressBar;
     private View signinpagelink;
@@ -75,9 +80,11 @@ public class RegisterActivity extends AppCompatActivity {
     private static final int GALLERY_IMAGE = 1;
     private List<Spinner_ItemModel> genderlist = new ArrayList<>();
     private Spinner editText;
-    String gender;
+    String gender="User Type";
     String usertype;
     ImageView uploadimg_icon,profileimg;
+    private int mYear, mMonth, mDay, mHour, mMinute;
+    private View  specilatylayout,exprencelayt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,8 +101,16 @@ public class RegisterActivity extends AppCompatActivity {
         phoneEt=findViewById(R.id.phoneEt);
         passEt=findViewById(R.id.passEt);
         progressBar=findViewById(R.id.progressbar);
-        registerbtn=findViewById(R.id.registerbtn);
+        registerbtn=findViewById(R.id.login_card);
         signinpagelink=findViewById(R.id.signinpagelink);
+
+        dateof_birth_Et = findViewById(R.id.date_of_birth);
+        lcation_Et = findViewById(R.id.location_et);
+        Address_Et = findViewById(R.id.address_et);
+        speclaist_Et = findViewById(R.id.speclaty_et);
+        total_Exprence_Et = findViewById(R.id.total_exp_et);
+
+
 
         genderlist = getGenderList();
        uploadimg_icon.setOnClickListener(new View.OnClickListener() {
@@ -108,6 +123,40 @@ public class RegisterActivity extends AppCompatActivity {
 
            }
        });
+        dateof_birth_Et.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                final Calendar c = Calendar.getInstance();
+                mYear = c.get(Calendar.YEAR);
+                mMonth = c.get(Calendar.MONTH);
+                mDay = c.get(Calendar.DAY_OF_MONTH);
+
+
+                DatePickerDialog datePickerDialog = new DatePickerDialog(RegisterActivity.this,
+                        new DatePickerDialog.OnDateSetListener() {
+
+                            @RequiresApi(api = Build.VERSION_CODES.O)
+                            @Override
+                            public void onDateSet(DatePicker view, int year,
+                                                  int monthOfYear, int dayOfMonth) {
+
+
+                                dobres = year  + "-" + (monthOfYear + 1) + "-" +dayOfMonth ;
+
+
+
+
+                                dateof_birth_Et.setText(dobres);
+
+
+                            }
+                        }, mYear, mMonth, mDay);
+                datePickerDialog.show();
+
+
+            }
+        });
         final Spinner_ItemAdapter genderadapter = new Spinner_ItemAdapter(getApplicationContext(), (ArrayList<Spinner_ItemModel>) genderlist);
 
         if (editText != null) {
@@ -120,7 +169,15 @@ public class RegisterActivity extends AppCompatActivity {
                     Spinner_ItemModel model = (Spinner_ItemModel) parent.getSelectedItem();
 
                     gender = model.getSpinnerItemName();
-
+                    if(gender.equals("premium user")){
+                        usertype ="2";
+                        speclaist_Et.setVisibility(View.VISIBLE);
+                        total_Exprence_Et.setVisibility(View.VISIBLE);
+                    }else {
+                        usertype="1";
+                        speclaist_Et.setVisibility(View.GONE);
+                        total_Exprence_Et.setVisibility(View.GONE);
+                    }
                 }
 
                 @Override
@@ -139,41 +196,96 @@ public class RegisterActivity extends AppCompatActivity {
                 email=emailEt.getText().toString();
                // phone=phoneEt.getText().toString();
                 pass=passEt.getText().toString();
+                dobres = dateof_birth_Et.getText().toString();
+                locationres = lcation_Et.getText().toString();
+                addrsessres = Address_Et.getText().toString();
+                totalexpres = total_Exprence_Et.getText().toString();
+                specalistres = speclaist_Et.getText().toString();
 
                // Toast.makeText(RegisterActivity.this, ""+username+" "+email+" "+pass, Toast.LENGTH_SHORT).show();
                 if(gender.equals("premium user")){
                     usertype ="2";
                 }else {
                     usertype="1";
+
                 }
+
 
                 if (TextUtils.isEmpty(username))
                 {
+                    YoYo.with(Techniques.Shake)
+                            .duration(500)
+                            .repeat(0)
+                            .playOn(usernameEt);
                     usernameEt.setError("Required");
                     usernameEt.requestFocus();
                 }
                 else if (TextUtils.isEmpty(email))
                 {
+                    YoYo.with(Techniques.Shake)
+                            .duration(500)
+                            .repeat(0)
+                            .playOn(emailEt);
                     emailEt.setError("Required");
                     emailEt.requestFocus();
                 }
                 else if (!email.trim().matches(emailPattern))
                 {
+                    YoYo.with(Techniques.Shake)
+                            .duration(500)
+                            .repeat(0)
+                            .playOn(emailEt);
                     emailEt.setError("Email Address is not valid");
                     emailEt.requestFocus();
+                } else if(gender.equals("User Type")){
+                    YoYo.with(Techniques.Shake)
+                            .duration(500)
+                            .repeat(0)
+                            .playOn(editText);
+
                 }
-//                else if (TextUtils.isEmpty(phone))
-//                {
-//                    phoneEt.setError("Required");
-//                    phoneEt.requestFocus();
-//                }
-//                else if (phone.length()>10 || phone.length()<10)
-//                {
-//                    phoneEt.setError("Phone number Must be 10 digits");
-//                    phoneEt.requestFocus();
-//                }
+                else if (TextUtils.isEmpty(dobres))
+                {
+                    YoYo.with(Techniques.Shake)
+                            .duration(500)
+                            .repeat(0)
+                            .playOn(dateof_birth_Et);
+                    dateof_birth_Et.setError("Required");
+                    dateof_birth_Et.requestFocus();
+                } else if (TextUtils.isEmpty(locationres))
+                {
+                    YoYo.with(Techniques.Shake)
+                            .duration(500)
+                            .repeat(0)
+                            .playOn(lcation_Et);
+                    lcation_Et.setError("Required");
+                    lcation_Et.requestFocus();
+                }  else if (TextUtils.isEmpty(addrsessres))
+                {
+                    YoYo.with(Techniques.Shake)
+                            .duration(500)
+                            .repeat(0)
+                            .playOn(Address_Et);
+                    Address_Et.setError("Required");
+                    Address_Et.requestFocus();
+                }
+
+                 else if (filePatadhar.equals(""))
+                {
+                    YoYo.with(Techniques.Shake)
+                            .duration(500)
+                            .repeat(0)
+                            .playOn(profileimg);
+                    Toast.makeText(RegisterActivity.this, "Please select profile Image", Toast.LENGTH_SHORT).show();
+
+                }
+
                 else if (TextUtils.isEmpty(pass))
                 {
+                    YoYo.with(Techniques.Shake)
+                            .duration(500)
+                            .repeat(0)
+                            .playOn(passEt);
                     passEt.setError("Required");
                     passEt.requestFocus();
                 }
@@ -358,11 +470,11 @@ public class RegisterActivity extends AppCompatActivity {
            RequestBody pass_pass= RequestBody.create(MediaType.parse("text/plain"),pass);
            RequestBody user_type= RequestBody.create(MediaType.parse("text/plain"),usertype);
 
-           RequestBody dob= RequestBody.create(MediaType.parse("text/plain"),"1998-6-2");
-           RequestBody location= RequestBody.create(MediaType.parse("text/plain"),"location");
-           RequestBody speciality= RequestBody.create(MediaType.parse("text/plain"),"speciality");
-           RequestBody total_exp= RequestBody.create(MediaType.parse("text/plain"),"1");
-           RequestBody address= RequestBody.create(MediaType.parse("text/plain"),"address");
+           RequestBody dob= RequestBody.create(MediaType.parse("text/plain"),dobres);
+           RequestBody location= RequestBody.create(MediaType.parse("text/plain"),locationres);
+           RequestBody speciality= RequestBody.create(MediaType.parse("text/plain"),specalistres);
+           RequestBody total_exp= RequestBody.create(MediaType.parse("text/plain"),totalexpres);
+           RequestBody address= RequestBody.create(MediaType.parse("text/plain"),addrsessres);
 
 
 
@@ -390,21 +502,27 @@ public class RegisterActivity extends AppCompatActivity {
             call.enqueue(new Callback<Example>() {
                 @Override
                 public void onResponse(retrofit2.Call<Example>call, retrofit2.Response<Example> response) {
-                    Toast.makeText(RegisterActivity.this, "Register sucessfully", Toast.LENGTH_SHORT).show();
 
-                     String username = response.body().getData().getName();
-                     String userId = String.valueOf(response.body().getData().getId());
-                     String  email= response.body().getData().getEmail();
-                     String user_tye = response.body().getData().getUserType();
-                     String location = response.body().getData().getLocation();
+                  try {
+                      Toast.makeText(RegisterActivity.this, "Register sucessfully"+response.body().getData().getUserType(), Toast.LENGTH_SHORT).show();
+                      String username = response.body().getData().getName();
+                      String userId = String.valueOf(response.body().getData().getId());
+                      String  email= response.body().getData().getEmail();
+                      String user_tye = response.body().getData().getUserType();
+                      String location = response.body().getData().getLocation();
+                      String image = response.body().getData().getImage();
 
-                    progressDialog.dismiss();
-                    User user=new User(userId,username,email,user_tye,location,"","");
-                    SharedPrefManager.getInstance(getApplicationContext()).userLogin(user);
+                      progressDialog.dismiss();
+                      User user=new User(userId,username,email,user_tye,location,image,"");
+                      SharedPrefManager.getInstance(getApplicationContext()).userLogin(user);
 
 
-                    Intent intent = new Intent(RegisterActivity.this,MainActivity.class);
-                    startActivity(intent);
+                      Intent intent = new Intent(RegisterActivity.this,MainActivity.class);
+                      startActivity(intent);
+
+                  }catch (Exception e){
+
+                  }
 
 
 

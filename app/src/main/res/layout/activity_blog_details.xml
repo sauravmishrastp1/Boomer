@@ -13,24 +13,29 @@
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="170dp"
-        android:background="@drawable/usercoverphoto"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
+       <ImageView
+           android:layout_width="match_parent"
+           android:id="@+id/blogimg"
+           android:scaleType="fitXY"
+           android:layout_height="match_parent">
 
+       </ImageView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageView"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
-        android:layout_marginTop="132dp"
+        android:layout_marginTop="162dp"
         android:src="@drawable/image2"
         app:layout_constraintStart_toStartOf="@+id/constraintLayout"
         app:layout_constraintTop_toTopOf="@+id/constraintLayout" />
@@ -58,7 +63,7 @@
                 android:layout_width="wrap_content"
                 android:id="@+id/name"
                 android:layout_height="wrap_content"
-                android:text="Siddharth Tripathi"
+                android:text=""
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 android:textStyle="bold"/>
@@ -67,7 +72,7 @@
                 android:layout_width="wrap_content"
                 android:id="@+id/title"
                 android:layout_height="wrap_content"
-                android:text="Astrology Gyan"
+                android:text=""
                 android:textSize="10sp"/>
 
         </LinearLayout>
@@ -91,6 +96,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Astrologer Gyan"
+                android:visibility="gone"
                 android:textSize="10sp"
                 android:paddingLeft="12dp"
                 android:paddingRight="12dp"
@@ -130,7 +136,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginRight="8dp"
-            android:text="Why Marketing Executive are Excited about Avm for Employee Email"
+            android:text=""
             android:textColor="@color/blue"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -143,7 +149,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
-            android:text="@string/sample_blog"
+            android:text=""
             android:textColor="@color/black"
             android:textSize="14sp" />
 
@@ -181,34 +187,11 @@
 
                     <TextView
                         android:layout_width="wrap_content"
+                        android:id="@+id/like_"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="8dp"
-                        android:text="347"
-                        android:textSize="10sp" />
-
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_gravity="center_vertical"
-                        android:src="@drawable/chat" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="8dp"
-                        android:text="347"
+                        android:text="0"
                         android:textSize="10sp" />
 
                 </LinearLayout>
@@ -219,6 +202,33 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
                     android:layout_weight="1"
+                    android:layout_marginRight="8dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:id="@+id/comment"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/chat" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:id="@+id/commenttxt"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="8dp"
+                        android:text="0"
+                        android:textSize="10sp" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:visibility="gone"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -239,6 +249,13 @@
 
             </LinearLayout>
         </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="Comments"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content">
+
+        </TextView>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview"
@@ -253,6 +270,7 @@
     </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
+
 
 
 

@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.Update_Profile">
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:id="@+id/toolbar"
+        app:titleTextColor="#fff"
+        style="@style/Theme.AppCompat.Light.DarkActionBar"
+        android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
+        android:background="@color/colorPrimary"
+        android:layout_height="wrap_content">
+
+    </androidx.appcompat.widget.Toolbar>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_below="@id/toolbar"
+        android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="150dp"
+            android:id="@+id/profile_img"
+            app:civ_border_color="#737373"
+            app:civ_border_width="1dp"
+            android:src="@drawable/user_placeholder"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="150dp">
+
+        </de.hdodenhof.circleimageview.CircleImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="20dp"
+            android:text="User Name"
+            android:textColor="#000"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp">
+
+
+        </TextView>
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/user_nameet"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:hint="User Name"
+            android:padding="8dp"
+            android:background="@drawable/button_rectangle_background"
+            android:layout_height="40dp">
+
+        </EditText>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="20dp"
+
+            android:layout_marginStart="20dp"
+            android:text="Email Id"
+            android:textColor="#000"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp">
+
+
+        </TextView>
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/email_et"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:hint="Email id"
+            android:padding="8dp"
+            android:background="@drawable/button_rectangle_background"
+            android:layout_height="40dp">
+        </EditText>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:text="Phone Number"
+            android:textColor="#000"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp">
+
+
+        </TextView>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:id="@+id/phone_et"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:hint="Phone number"
+            android:padding="8dp"
+            android:background="@drawable/button_rectangle_background"
+            android:layout_height="40dp">
+
+        </EditText>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:text="Date Of Birth"
+            android:textColor="#000"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp">
+
+
+        </TextView>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            android:id="@+id/dateof_birth_Et"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:hint="Date of birth"
+            android:padding="8dp"
+            android:background="@drawable/button_rectangle_background"
+            android:layout_height="40dp">
+        </EditText>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:text="Location"
+            android:textColor="#000"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp">
+
+
+        </TextView>
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/location_Et"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:hint="Location"
+            android:padding="8dp"
+            android:background="@drawable/button_rectangle_background"
+            android:layout_height="40dp">
+
+        </EditText>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:text="Address"
+            android:textColor="#000"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp">
+
+
+        </TextView>
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/Address_Et"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:hint="Address"
+            android:padding="8dp"
+            android:background="@drawable/button_rectangle_background"
+            android:layout_height="40dp">
+        </EditText>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/forbloger_update"
+            android:visibility="gone"
+            android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:text="Specialization"
+            android:textColor="#000"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp">
+
+
+        </TextView>
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/speclization"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:hint="Specialization"
+            android:padding="8dp"
+            android:background="@drawable/button_rectangle_background"
+            android:layout_height="40dp">
+        </EditText>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:text="Total experience "
+            android:textColor="#000"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp">
+
+
+        </TextView>
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/total_exp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:hint="Total experience "
+            android:padding="8dp"
+            android:background="@drawable/button_rectangle_background"
+            android:layout_height="40dp">
+        </EditText>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/post_now"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:layout_margin="24dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/button_background"
+            android:text="Update"
+            android:textColor="@color/white"
+            android:textSize="12sp"/>
+    </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

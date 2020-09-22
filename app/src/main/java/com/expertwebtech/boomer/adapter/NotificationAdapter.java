@@ -39,7 +39,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
         // holder.imageView.setImageResource(homeList.get(position).getPicture());
 
-        holder.imageView.setBackgroundResource(homeList.get(position).getPicture());
+      //  holder.imageView.setBackgroundResource(homeList.get(position).getPicture());
         holder.nametv.setText(homeList.get(position).getName());
 
         if (position==1 || position==2||position==3 || position==0)

@@ -121,9 +121,17 @@ public class UserFragment extends Fragment {
                                     String total_exp=object.getString("total_exp");
                                     String no_of_like=object.getString("no_of_like");
                                     String no_of_share=object.getString("no_of_share");
+                                    String email = object.getString("email");
+                                    String phone_no = object.getString("phone");
+                                    String location = object.getString("location");
+                                    String date_of_bith = object.getString("dob");
+                                    String address = object.getString("address");
+                                    String  folloerrs = object.getString("no_of_followers");
+                                    String posts = object.getString("no_of_post");
+                                    String flowing = object.getString("no_of_following");
                                    // String id=object.getString("id");
 
-                                    homeList.add(new Home(id,name,Url.IMAGE_BASE_URL+image,"Astrologer",total_exp,no_of_like,"12",no_of_share));
+                                    homeList.add(new Home(id,name,Url.IMAGE_BASE_URL+image,speciality,total_exp,no_of_like,"12",no_of_share,email,phone_no,location,date_of_bith,address,folloerrs,posts));
                                 }
 
                                 HomeAdapter homeAdapter=new HomeAdapter(homeList,getContext());

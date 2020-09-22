@@ -12,13 +12,12 @@
         android:padding="8dp"
         android:background="@drawable/rectangular_background"
         android:elevation="4dp">
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/holtwood_one_sc"
-            android:text="Boomer"
-            android:textColor="@color/colorPrimaryDark"
+            android:text="Telefee"
+            android:textColor="#ff2f11"
             android:textSize="24dp"
             android:layout_marginLeft="16dp"
             android:layout_weight="1"

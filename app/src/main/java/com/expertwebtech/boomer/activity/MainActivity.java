@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.expertwebtech.boomer.R;
 import com.expertwebtech.boomer.constant.SharedPrefManager;
+import com.expertwebtech.boomer.fragment.Bloger_Blog;
 import com.expertwebtech.boomer.fragment.CreateBlogFragment;
 import com.expertwebtech.boomer.fragment.HomeFragment;
 import com.expertwebtech.boomer.fragment.NotificationsFragment;
@@ -42,32 +43,23 @@ public class MainActivity extends AppCompatActivity {
         //Toast.makeText(this, ""+SharedPrefManager.getInstance(getApplicationContext()).getUser().getId(), Toast.LENGTH_SHORT).show();
         if(usertype.equals("1")){
             spaceNavigationView.addSpaceItem(new SpaceItem("",R.drawable.homeicon));
-            spaceNavigationView.addSpaceItem(new SpaceItem("",R.drawable.myplan));
-            spaceNavigationView.addSpaceItem(new SpaceItem("",R.drawable.notification));
+           spaceNavigationView.addSpaceItem(new SpaceItem("",R.drawable.myplan));
+           spaceNavigationView.addSpaceItem(new SpaceItem("",R.drawable.notification));
+
             spaceNavigationView.addSpaceItem(new SpaceItem("",R.drawable.homeuser));
 
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new UserFragment()).commit();
-
             spaceNavigationView.setCentreButtonIcon(R.drawable.search);
+
         }if(usertype.equals("2")) {
-            spaceNavigationView.setCentreButtonIcon(R.drawable.ic_baseline_add_24);
+            spaceNavigationView.setCentreButtonIcon(R.drawable.homeuser);
 
 
-            spaceNavigationView.addSpaceItem(new SpaceItem("",R.drawable.notification));
-            spaceNavigationView.addSpaceItem(new SpaceItem("",R.drawable.homeuser));
+            spaceNavigationView.addSpaceItem(new SpaceItem("",R.drawable.mypost));
+            spaceNavigationView.addSpaceItem(new SpaceItem("",R.drawable.ic_baseline_add_24));
 
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new CreateBlogFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment()).commit();
 
-
-        }else {
-            spaceNavigationView.addSpaceItem(new SpaceItem("",R.drawable.homeicon));
-            spaceNavigationView.addSpaceItem(new SpaceItem("",R.drawable.myplan));
-            spaceNavigationView.addSpaceItem(new SpaceItem("",R.drawable.notification));
-            spaceNavigationView.addSpaceItem(new SpaceItem("",R.drawable.homeuser));
-
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new UserFragment()).commit();
-
-            spaceNavigationView.setCentreButtonIcon(R.drawable.search);
 
         }
 
@@ -85,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new SearchFragment()).commit();
 
                 }if (usertype.equals("2")){
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new CreateBlogFragment()).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment()).commit();
 
                 }else {
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new SearchFragment()).commit();
@@ -108,9 +100,9 @@ public class MainActivity extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
                 }if(usertype.equals("2")){
                     if (itemIndex == 0)
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new NotificationsFragment()).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Bloger_Blog()).commit();
                     else if (itemIndex == 1)
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CreateBlogFragment()).commit();
 
                 }else {
                     if (itemIndex == 0)

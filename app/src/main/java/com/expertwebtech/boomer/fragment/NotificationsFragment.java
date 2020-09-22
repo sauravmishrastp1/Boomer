@@ -48,16 +48,7 @@ public class NotificationsFragment extends Fragment {
         notificationlist.clear();
 
 
-        notificationlist.add(new Home("Dr Kunal Rastogi",R.drawable.image1));
-        notificationlist.add(new Home("Pandit Raj Tripathi",R.drawable.image2));
-        notificationlist.add(new Home("Dr Kuldeep Rana",R.drawable.image3));
-        notificationlist.add(new Home("Anshu Thapper",R.drawable.image1));
-        notificationlist.add(new Home("ShivRaj JI",R.drawable.image2));
-        notificationlist.add(new Home("Gagan Sharma",R.drawable.image3));
-        notificationlist.add(new Home("Kiran Sharma",R.drawable.image1));
-        notificationlist.add(new Home("Raghvendra Singh",R.drawable.image2));
-        notificationlist.add(new Home("Rajashav Shri",R.drawable.image3));
-        notificationlist.add(new Home("Jumman Lakh",R.drawable.image1));
+        notificationlist.add(new Home("Dr Kunal Rastogi","","","","","","","","","","","","","",""));
 
         NotificationAdapter homeAdapter=new NotificationAdapter(notificationlist,getContext());
         recyclerview.setAdapter(homeAdapter);

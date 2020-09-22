@@ -13,6 +13,7 @@
         >
         <ImageView
             android:layout_width="match_parent"
+            android:id="@+id/profile_imag"
             android:layout_height="match_parent"
             android:src="@drawable/bloggercover1"
             android:scaleType="fitXY"/>
@@ -26,6 +27,7 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="23dp"
+            android:id="@+id/profile_img2"
             android:layout_height="23dp"
             android:src="@drawable/bloggerprofileimage"
             android:layout_gravity="center_vertical"
@@ -35,6 +37,7 @@
 
         <TextView
             android:layout_width="wrap_content"
+            android:id="@+id/name_"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="6dp"

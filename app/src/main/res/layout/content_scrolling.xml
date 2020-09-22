@@ -55,6 +55,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="1.5k"
+                        android:id="@+id/post"
                         android:layout_gravity="center_horizontal"
                         android:textStyle="bold"
                         android:textColor="@color/black"
@@ -79,6 +80,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="17.5k"
+                        android:id="@+id/flowers"
                         android:layout_gravity="center_horizontal"
                         android:textStyle="bold"
                         android:textColor="@color/black"
@@ -97,6 +99,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     android:orientation="vertical"
                     android:layout_weight="1">
 
@@ -177,6 +180,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/email_id"
                         android:text="martha123@gmail.com"
                         android:textSize="12sp"
                         android:layout_gravity="center_horizontal"/>
@@ -213,6 +217,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="+91 8872720098"
+                        android:id="@+id/phone_no"
                         android:textSize="12sp"
                         android:layout_gravity="center_horizontal"/>
 
@@ -238,6 +243,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="India"
+                        android:id="@+id/location_txt"
                         android:textSize="12sp"
                         android:layout_gravity="center_horizontal"/>
 
@@ -265,21 +271,23 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Date of Birth"
-                        android:textSize="16sp"
-                        android:layout_gravity="center_horizontal"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="Date of Birth"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="12-08-1999"
+                        android:id="@+id/date_of_birth"
                         android:textSize="12sp"
                         android:layout_gravity="center_horizontal"/>
+
 
                 </LinearLayout>
 
@@ -304,6 +312,7 @@
                         android:layout_height="wrap_content"
                         android:text="H-20,Beta 1 Greater Noida,Gautam Buddha Nagar,Up"
                         android:textAlignment="center"
+                        android:id="@+id/addresstxt"
                         android:textSize="12sp"
                         android:layout_gravity="center_horizontal"/>
 
